@@ -21,6 +21,8 @@
 !.config/clangd/**
 !.config/wallpapers/
 !.config/wallpapers/**
+!.config/screenshots/
+!.config/screenshots/**
 
 !.emacs.d/
 !.emacs.d/init.el
@@ -29,4 +31,5 @@
 !.emacs.d/lisp/**
 
 !.bashrc
+!readme.md
 !.gitconfig
