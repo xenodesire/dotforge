@@ -10,6 +10,7 @@ Here's what's in here so far:
 
 - <a href="/.config/btop">Btop</a>
 - <a href="/.config/clangd">Clangd</a>
+- <a href="./.emacs.d/">Emacs</a>
 - <a href="/.config/fastfetch">FastFetch</a>
 - <a href="/.config/hypr">hyprland</a>
 - <a href="/.config/kitty">Kitty</a>
