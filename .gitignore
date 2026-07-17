@@ -1,22 +1,32 @@
 *
+
 !.gitignore
 
 !.config/
+!.config/nvim/
 !.config/nvim/**
+!.config/kitty/
 !.config/kitty/**
+!.config/hypr/
 !.config/hypr/**
+!.config/waybar/
 !.config/waybar/**
+!.config/wezterm/
 !.config/wezterm/**
-!.config/clangd/**
+!.config/btop/
 !.config/btop/**
+!.config/fastfetch/
 !.config/fastfetch/**
+!.config/clangd/
+!.config/clangd/**
+!.config/wallpapers/
 !.config/wallpapers/**
 
 !.emacs.d/
 !.emacs.d/init.el
 !.emacs.d/early-init.el
+!.emacs.d/lisp/
 !.emacs.d/lisp/**
 
 !.bashrc
 !.gitconfig
-
