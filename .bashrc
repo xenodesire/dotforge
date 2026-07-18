@@ -3,30 +3,32 @@ case $- in
 *) return ;;
 esac
 
-export OSH='/home/xenodesire/.oh-my-bash'
+export XDG_DATA_DIRS="$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
 
-OSH_THEME="font"
-DISABLE_AUTO_UPDATE="true"
+# export OSH='/home/xenodesire/.oh-my-bash'
 
-OMB_USE_SUDO=true
+# OSH_THEME="font"
+# DISABLE_AUTO_UPDATE="true"
+
+# OMB_USE_SUDO=true
 alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
-completions=(
-  git
-  composer
-  ssh
-)
+# completions=(
+#  git
+#  composer
+#  ssh
+#)
 
-aliases=(
-  general
-)
+# aliases=(
+#  general
+# )
 
-plugins=(
-  git
-  bashmarks
-)
+# plugins=(
+#  git
+#  bashmarks
+# )
 
-source "$OSH"/oh-my-bash.sh
+# source "$OSH"/oh-my-bash.sh
 
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='nvim'
@@ -36,4 +38,5 @@ source "$OSH"/oh-my-bash.sh
 
 #alias bashconfig="mate ~/.bashrc"
 # alias ohmybash="mate ~/.oh-my-bash"
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
+
