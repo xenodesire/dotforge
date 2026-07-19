@@ -1,42 +1,21 @@
-case $- in
-*i*) ;;
-*) return ;;
-esac
+# .bashrc
 
-export XDG_DATA_DIRS="$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
 
-# export OSH='/home/xenodesire/.oh-my-bash'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-# OSH_THEME="font"
-# DISABLE_AUTO_UPDATE="true"
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
 
-# OMB_USE_SUDO=true
-alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
-
-# completions=(
-#  git
-#  composer
-#  ssh
-#)
-
-# aliases=(
-#  general
-# )
-
-# plugins=(
-#  git
-#  bashmarks
-# )
-
-# source "$OSH"/oh-my-bash.sh
-
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='nvim'
-# else
-#   export EDITOR='vim'
-# fi
-
-#alias bashconfig="mate ~/.bashrc"
-# alias ohmybash="mate ~/.oh-my-bash"
-# . "$HOME/.cargo/env"
-
+if [ -d ~/.bashrc.d ]; then
+    for rc in ~/.bashrc.d/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
+        fi
+    done
+fi
+unset rc

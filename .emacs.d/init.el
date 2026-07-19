@@ -10,6 +10,7 @@
 	     '("melpa" . "https://melpa.org/packages/") t)
 
 (setq inhibit-startup-message t)
+(setq display-line-numbers-type 'relative)
 
 (tool-bar-mode -1)
 (menu-bar-mode -1)
