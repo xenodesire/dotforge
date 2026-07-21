@@ -3,6 +3,7 @@
 !.gitignore
 !.Xresources
 !.xinitrc
+!.vimrc
 
 !.config/
 !.config/nvim/
