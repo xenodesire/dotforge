@@ -5,5 +5,5 @@
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
 [user]
-	name = xenodesire
+	name = Bruno G. Ciccarino
 	email = bgrecaciccarino@gmail.com
