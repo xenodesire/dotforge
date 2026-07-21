@@ -6,8 +6,9 @@
       gc-cons-percentage 0.6)
 
 (require 'package)
-(add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/") t)
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                          ("gnu"   . "https://elpa.gnu.org/packages/")))
+(package-initialize)
 
 (setq inhibit-startup-message t)
 (setq display-line-numbers-type 'relative)
@@ -18,20 +19,36 @@
 (column-number-mode 1)
 (show-paren-mode 1)
 
-(use-package sexy-theme
+(use-package gruvbox-theme
   :ensure t
   :config
-  (load-theme 'sexy t))
+  (load-theme 'gruvbox-dark-medium t))
 
 ;; (load-theme 'sexy t)
 
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+
 
 (use-package org)
 
 (use-package ox-hugo
   :ensure t
   :after ox)
+
+;; TODO: Fix autoload
+(use-package hl-todo
+  :ensure t
+  :config
+  (setq hl-todo-keyword-faces
+        '(("TODO"   . "#fabd2f")
+          ("FIXME"  . "#fb4934")
+          ("HACK"   . "#fe8019")
+          ("NOTE"   . "#83a598")
+          ("BUG"    . "#fb4934")
+          ("XXX"    . "#d3869b")
+          ("REVIEW" . "#b8bb26")
+          ("DEPRECATED" . "#928374")))
+  (global-hl-todo-mode))
 
 (use-package ivy
   :ensure t
