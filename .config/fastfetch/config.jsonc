@@ -18,21 +18,80 @@
     "type": "string"
   },
   "modules": [
-    "title",
-    "separator",
-    "os",
-    "kernel",
-    "uptime",
-    "packages",
-    "shell",
-    "de",
-    "wm",
-    "wmtheme",
-    "theme",
-    "icons",
-    "font",
-    "terminal",
-    "locale",
+    {
+      "type": "title",
+      "keyWidth": 10,
+      "color": "#C4A7E7"
+    },
+    "break",
+    {
+      "type": "os",
+      "key": "󰣇 ",
+      "keyColor": "#c4a7e7",
+  "color": "#e0def4",
+  "format": "Arch (Btw)"
+    },
+    {
+      "type": "host",
+      "key": "󰌢 ",
+      "keyColor": "#c4a7e7",
+      "color": "#e0def4",
+      "format": "Xenodesire"
+    },
+    {
+      "type": "kernel",
+      "key": "󰒓 ",
+      "keyColor": "#c4a7e7",
+      "color": "#e0def4"
+    },
+    {
+      "type": "uptime",
+      "key": "󰅐 ",
+      "keyColor": "#c4a7e7",
+      "color": "#e0def4"
+    },
+    {
+      "type": "packages",
+      "key": "󰏓 ",
+      "keyColor": "#c4a7e7",
+      "color": "#e0def4"
+    },
+    {
+      "type": "shell",
+      "key": "󰞷 ",
+      "keyColor": "#c4a7e7",
+      "color": "#e0def4"
+    },
+    {
+      "type": "de",
+      "key": "󰧨 ",
+      "keyColor": "#c4a7e7",
+      "color": "#e0def4"
+    },
+    {
+      "type": "wm",
+      "key": "󰍹 ",
+      "keyColor": "#c4a7e7",
+      "color": "#e0def4"
+    },
+    {
+      "type": "theme",
+      "key": "󰉦 ",
+      "keyColor": "#c4a7e7",
+      "color": "#e0def4"
+    },
+    {
+      "type": "terminal",
+      "key": "󰆍 ",
+      "keyColor": "#c4a7e7",
+      "color": "#e0def4"
+    },
+    {
+      "type": "locale",
+      "key": "󰗊 ",
+      "keyColor": "#c4a7e7",
+      "color": "#e0def4"
+    },
     "break",
     "colors"
   ]
