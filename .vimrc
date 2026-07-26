@@ -19,13 +19,14 @@ nmap <leader>w :w!<cr>
 
 call plug#begin()
 
-Plug 'morhetz/gruvbox'
+Plug 'rose-pine/vim'
 
 call plug#end()
 
 " visual
 set background=dark
-colorscheme gruvbox
+set termguicolors
+colorscheme rosepine_moon
 set number
 set relativenumber
 set hlsearch
