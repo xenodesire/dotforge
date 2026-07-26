@@ -13,7 +13,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd(terminal)
 	hl.exec_cmd("nm-applet")
 	hl.exec_cmd("waybar")
-	hl.exec_cmd("swaybg -m fill -i $HOME/.config/wallpapers/rose-pine-wallhaven.jpg")
+	hl.exec_cmd("swaybg -m fill -i $HOME/.config/wallpapers/rose-pine-wallpaper.jpg")
 end)
 
 hl.env("XCURSOR_SIZE", "24")
