@@ -1,5 +1,5 @@
 @define-color highlight rgba(117, 241, 250, 1);
-@define-color dark-9 rgba(24, 24, 27, 1);
+@define-color dark-9 rgba(25, 23, 36, 0.75);
 @define-color dark-8 rgba(39, 39, 42, 1);
 @define-color dark-7 rgba(63, 63, 70, 1);
 @define-color dark-6 rgba(82, 82, 91, 1);
@@ -13,7 +13,7 @@
 window#waybar {
   background-color: @dark-9;
   color: white;
-  min-height: 24px;
+  min-height: 17px;
 }
 
 #workspaces button {

@@ -13,7 +13,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd(terminal)
 	hl.exec_cmd("nm-applet")
 	hl.exec_cmd("waybar")
-	hl.exec_cmd("swaybg -m fill -i $HOME/.config/wallpapers/penger_windows.jpg")
+	hl.exec_cmd("swaybg -m fill -i $HOME/.config/wallpapers/rose-pine-wallhaven.jpg")
 end)
 
 hl.env("XCURSOR_SIZE", "24")
@@ -41,9 +41,8 @@ hl.config({
 			inactive_border = "rgba(595959aa)",
 		},
 
-		resize_on_border = false,
-
-		allow_tearing = false,
+		resize_on_border = true,
+		allow_tearing = true,
 
 		layout = "dwindle",
 	},

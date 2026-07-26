@@ -1,24 +1,28 @@
 return {
+  -- {
+  --    "ellisonleao/gruvbox.nvim",
+  --    lazy = false,
+  --    priority = 1000,
+  ---    opts = {
+  ---      transparent = true,
+  ---      styles = {
+  ---        sidebars = "transparent",
+  ---        floats = "transparent",
+  ---      },
+  ---      on_highlights = function(hl, _)
+  ---        hl.CursorLine = { bg = "NONE" }
+  ---        hl.CursorLineNr = { bg = "NONE" }
+  ---      end,
+  --  },
   {
-    "ellisonleao/gruvbox.nvim",
+    "rose-pine/neovim",
     lazy = false,
     priority = 1000,
-    ---    opts = {
-    ---      transparent = true,
-    ---      styles = {
-    ---        sidebars = "transparent",
-    ---        floats = "transparent",
-    ---      },
-    ---      on_highlights = function(hl, _)
-    ---        hl.CursorLine = { bg = "NONE" }
-    ---        hl.CursorLineNr = { bg = "NONE" }
-    ---      end,
   },
-
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox",
+      colorscheme = "rose-pine-moon",
     },
   },
 }
