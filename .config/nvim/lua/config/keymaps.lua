@@ -1,3 +1,15 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
+local map = vim.keymap.set
+
+--- Remaps `j` and `k` for visual line navigation and jumplist retention.
+---
+--- - Moves by visual (wrapped) lines when no count is provided (`gj` / `gk`).
+--- - Adds the current position to the jumplist (`m'`) when a count > 1 is given,
+---   allowing quick navigation back using `<C-o>`.
+---
+--- @return string The resolved key sequence to execute.
+map("n", "j", [[(v:count > 1 ? 'm`' . v:count : 'g') . 'j']], { expr = true })
+map("n", "k", [[(v:count > 1 ? 'm`' . v:count : 'g') . 'k']], { expr = true })
+
+--- Save the current file in Normal and Insert modes.
+--- Automatically leaves Insert mode after saving.
+map({ "n", "i" }, "<C-s>", "<cmd>w<CR>", { desc = "Save current file" })
