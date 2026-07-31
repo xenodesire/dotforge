@@ -6,6 +6,7 @@ return {
         "clang-format",
         "stylua",
         "gofumpt",
+        "rust-analyzer",
         "goimports",
         "cljstyle",
       },

@@ -1,5 +1,8 @@
 local map = vim.keymap.set
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 --- Remaps `j` and `k` for visual line navigation and jumplist retention.
 ---
 --- - Moves by visual (wrapped) lines when no count is provided (`gj` / `gk`).
