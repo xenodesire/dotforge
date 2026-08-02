@@ -11,7 +11,7 @@ disable_ligatures cursor
 
 # Cursor
 cursor_trail 3
-# cursor none
+cursor none
 
 # Misc
 # scrollback_lines 10000
@@ -40,9 +40,3 @@ dynamic_background_opacity yes
 
 # Theme
 include ~/.config/kitty/themes/rose-pine-moon.conf
-
-
-# BEGIN_KITTY_THEME
-# Solarized Dark
-include current-theme.conf
-# END_KITTY_THEME

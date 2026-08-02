@@ -5,7 +5,7 @@ return {
       ensure_installed = {
         "clang-format",
         "stylua",
-        "gofumpt",
+        "gofmt",
         "rust-analyzer",
         "goimports",
         "cljstyle",
@@ -23,7 +23,7 @@ return {
         objc = { "clang_format" },
         objcpp = { "clang_format" },
         cuda = { "clang_format" },
-        go = { "goimports", "gofumpt" },
+        go = { "goimports", "gofmt" },
         rust = { "rustfmt" },
         clojure = { "cljstyle" },
         lisp = { "cljstyle" },
@@ -32,6 +32,7 @@ return {
         clang_format = {
           prepend_args = { "--style=file:" .. vim.fn.expand("~/.config/clangd/.clang-format") },
         },
+        gofmt = {},
       },
       format_on_save = {
         lsp_fallback = true,
