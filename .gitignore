@@ -6,6 +6,8 @@
 !.vimrc
 
 !.config/
+!.config/xenodesire/
+!.config/xenodesire/**
 !.config/nvim/
 !.config/nvim/**
 !.config/i3/

@@ -1,13 +1,10 @@
 return {
-  "maxmx03/solarized.nvim",
+  "navarasu/onedark.nvim",
   priority = 1000,
-  lazy = false,
-
-  opts = {},
-  config = function(_, opts)
-    vim.o.termguicolors = true
-    vim.o.background = "dark"
-    require("solarized").setup(opts)
-    vim.cmd.colorscheme("solarized")
+  config = function()
+    require("onedark").setup({
+      style = "darker",
+    })
+    require("onedark").load()
   end,
 }
