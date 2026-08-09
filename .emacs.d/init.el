@@ -5,6 +5,11 @@
 (setq gc-cons-threshold (* 512 1024 1024)
       gc-cons-percentage 0.6)
 
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (setq gc-cons-threshold (* 100 100 8)
+                  gc-cons-percentage 0.1)))
+
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                           ("gnu"   . "https://elpa.gnu.org/packages/")))
@@ -12,6 +17,7 @@
 
 (setq inhibit-startup-message t)
 (setq display-line-numbers-type 'relative)
+(setq make-backup-files nil)
 
 (global-visual-line-mode 1)
 (tool-bar-mode -1)
@@ -20,10 +26,10 @@
 (column-number-mode 1)
 (show-paren-mode 1)
 
-(use-package gruvbox-theme
+(use-package atom-one-dark-theme
   :ensure t
   :config
-  (load-theme 'gruvbox-dark-medium t))
+  (load-theme 'atom-one-dark t))
 
 ;; my old beloved themme ;-;
 ;; (load-theme 'sexy t)
