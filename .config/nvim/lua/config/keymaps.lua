@@ -16,4 +16,5 @@ map("n", "k", [[(v:count > 1 ? 'm`' . v:count : 'g') . 'k']], { expr = true })
 --- Save the current file in Normal and Insert modes.
 --- Automatically leaves Insert mode after saving.
 map({ "n", "i" }, "<C-s>", "<cmd>w<CR>", { desc = "Save current file" })
+map("i", "<C-z>", "<C-o>u", { desc = "Undo action" })
 map({ "i" }, "jk", "<Esc>", { desc = "Enter normal mode" })
