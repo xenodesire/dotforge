@@ -87,6 +87,24 @@ dotgit commit -m "chore(gitconfig): track gitconfig"
 dotgit push --set-upstream origin main
 ```
 
+### Installing sddm 
+
+I am assuming you are using Arch Linux; therefore, this guide is initially aimed at Arch users. Later, I will add a guide for whichever other distro you might be using.
+
+- To instal sddm, please run `sudo pacman -S sddm` in your terminal to install the package.
+- And then install qt6-wayland and qt5-wayland to prevent visual bugs on the login screen.
+
+> [!NOTE]
+> For the SDDM theme, I use the `sddm-astronaut-theme` backend, with a modification tailored to my "rice's" color palette. To install this modification, you will need to have `[sddm-astronaut-theme](https://github.com/Keyitdev/sddm-astronaut-theme)` installed.
+> After installing the sddm-astronaut-theme, you will need to create a symlink applying my modification to the sddm-astronaut-theme directory:
+> `sudo ln -s /home/$USER/.config/sddm-theme/pixel_onedark.conf /usr/share/sddm/themes/sddm-astronaut-theme/Themes/pixel_onedark.conf`
+> And 
+> `sudo cp ~/.config/wallpapers/wallpaper-retro-onedark.png /usr/share/sddm/themes/sddm-astronaut-theme/Backgrounds/`
+> After that, edit the metadata.desktop file at this path:
+> `sudo nano /usr/share/sddm/themes/sddm-astronaut-theme/metadata.desktop`
+> and edit the ConfigFile line so that it looks like this:
+> ```ConfigFile=Themes/pixel_onedark.conf```
+
 ## Features 
 Here's what's in here so far:
 
