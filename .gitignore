@@ -8,6 +8,8 @@
 !.config/
 !.config/xenodesire/
 !.config/xenodesire/**
+!.config/sddm-theme/
+!.config/sddm-theme/**
 !.config/nvim/
 !.config/nvim/**
 !.config/i3/
