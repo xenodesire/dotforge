@@ -21,4 +21,9 @@ fi
 unset rc
 . "$HOME/.cargo/env"
 
+dotnew() {
+  dotnet new console -o "$1"
+  code -r "$1"
+}
+
 # export MOZ_ENABLE_WAYLAND=1
