@@ -8,6 +8,8 @@
 !.config/
 !.config/xenodesire/
 !.config/xenodesire/**
+!.config/zellij/
+!.config/zellij/**
 !.config/sddm-theme/
 !.config/sddm-theme/**
 !.config/nvim/
