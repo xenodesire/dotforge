@@ -4,6 +4,7 @@ return {
     opts = {
       ensure_installed = {
         "clang-format",
+        "codelldb",
         "stylua",
         "gofmt",
         "rust-analyzer",
