@@ -16,6 +16,8 @@
 !.config/i3/**
 !.config/picom/
 !.config/picom/**
+!.config/ghostty/
+!.config/ghostty/**
 !.config/kitty/
 !.config/kitty/**
 !.config/hypr/
