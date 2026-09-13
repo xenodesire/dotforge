@@ -5,7 +5,7 @@ hl.monitor({
   scale = "auto",
 })
 
-local terminal = "ghostty"
+local terminal = "kitty"
 local fileManager = "dolphin"
 local menu = "wofi --show drun"
 

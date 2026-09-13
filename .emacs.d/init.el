@@ -31,8 +31,8 @@
   :config
   (load-theme 'atom-one-dark t))
 
-;; my old beloved themme ;-;
-;; (load-theme 'sexy t)
+;;; my old beloved themme ;-;
+;;; (load-theme 'sexy t)
 
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
@@ -43,7 +43,6 @@
   :ensure t
   :after ox)
 
-;; TODO: Fix autoload
 (use-package hl-todo
   :ensure t
   :config
@@ -79,7 +78,8 @@
   :after ivy
   :bind (("C-s" . swiper-isearch)))
 
-;; Thanks tsoding 
+;;; Thanks tsoding 
+;;; See more: https://github.com/rexim/dotfiles/blob/master/.emacs.rc/misc-rc.el
 (defun xeno/duplicate-line ()
   "Duplicate current line"
   (interactive)
@@ -91,13 +91,60 @@
   (move-beginning-of-line 1)
   (foward-char column))
 
+(defun xeno/buffer-file-name ()
+  (if (equal major-mode 'dired-mode)
+      default-directory
+    (buffer-file-name)))
+
 (defun xeno/kill-autoloads-buffers ()
+  "kill autoloads buffer"
+  (interactive)
+    (dolist (buffer (buffer-list))
+    (let ((name (buffer-name buffer)))
+      (when (string-match-p "-autoloads.el" name)
+        (kill-buffer buffer)
+        (message "Killed autoloads buffer %s" name)))))
+
+(defun xeno/kill-scratch ()
+  "kill scratch buffer"
   (interactive)
   (dolist (buffer (buffer-list))
     (let ((name (buffer-name buffer)))
-      (when (string-match-p "-autoloads.el" name)
+      (when (string-match-p "*scratch*" name)
 	(kill-buffer buffer)
-	(message "Killed autoloads buffer %s" name)))))
+	(message "Killed scratch buffer %s" name)))))
+
+(defun xeno/kill-messages ()
+  "kill messages buffer"
+  (interactive)
+  (dolist (buffer (buffer-list))
+    (let ((name (buffer-name buffer)))
+      (when (string-match-p "*Messages*" name)
+	(kill-buffer buffer)
+	(message "Killed messages buffer %s" name)))))
+
+(defun xeno/kill-warnings ()
+  "kill warnings buffer"
+  (interactive)
+  (dolist (buffer (buffer-list))
+    (let ((name (buffer-name buffer)))
+      (when (string-match-p "*Warnings*" name)
+	(kill-buffer buffer)
+	(message "Killed warnings buffer %s" name)))))
+
+(defun xeno/put-file-name-on-clipboard ()
+  "Put the current file name on the clipboard"
+  (interactive)
+  (let ((filename (xeno/buffer-file-name)))
+    (when filename
+      (kill-new filename)
+      (message filename))))
+
+(defun xeno/put-buffer-name-on-clipboard ()
+  "Put the current buffer name on the clipboard"
+  (interactive)
+  (kill-new (buffer-name))
+  (message (buffer-name)))
 
 ;; Org mode config
 (setq org-directory "~/bgc/agenda/org/")
@@ -144,6 +191,25 @@
       '((?A . (:foreground "#fb4934" :weight bold))
         (?B . (:foreground "#fabd2f"))
         (?C . (:foreground "#8ec07c"))))
+
+;;; Keymaps: 
+;;; C-c x d    → duplicate line
+;;; C-c x f    → file name → clipboard
+;;; C-c x b    → buffer name → clipboard
+;;; C-c x k    → kill autoload buffers
+
+(define-prefix-command 'xeno/leader-map)
+
+(global-set-key (kbd "C-c x") 'xeno/leader-map)
+
+(define-key xeno/leader-map (kbd "d") #'xeno/duplicate-line)
+(define-key xeno/leader-map (kbd "f") #'xeno/put-file-name-on-clipboard)
+(define-key xeno/leader-map (kbd "b") #'xeno/put-buffer-name-on-clipboard)
+(define-key xeno/leader-map (kbd "k") #'xeno/kill-autoloads-buffers)
+(define-key xeno/leader-map (kbd "s") #'xeno/kill-scratch)
+(define-key xeno/leader-map (kbd "m") #'xeno/kill-messages)
+(define-key xeno/leader-map (kbd "w") #'xeno/kill-warnings)
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
