@@ -1,4 +1,4 @@
-;;; init.el --- Emacs Initialization and Configuration
+;;; init.el --- Emacs Initialization and Configuration -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code: 
 
@@ -9,6 +9,8 @@
           (lambda ()
             (setq gc-cons-threshold (* 100 100 8)
                   gc-cons-percentage 0.1)))
+
+(setq read-process-output-max (* 3 1024 1024))
 
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
@@ -197,6 +199,10 @@
 ;;; C-c x f    → file name → clipboard
 ;;; C-c x b    → buffer name → clipboard
 ;;; C-c x k    → kill autoload buffers
+;;; C-c x s    → kill scratch buffer
+;;; C-c x m    → kill messages buffer
+;;; C-c x w    → kill warnings buffer
+;;; C-c c      → M-x compile bind
 
 (define-prefix-command 'xeno/leader-map)
 
@@ -209,6 +215,8 @@
 (define-key xeno/leader-map (kbd "s") #'xeno/kill-scratch)
 (define-key xeno/leader-map (kbd "m") #'xeno/kill-messages)
 (define-key xeno/leader-map (kbd "w") #'xeno/kill-warnings)
+
+(global-set-key (kbd "C-c c") 'compile)
 
 
 (custom-set-variables
