@@ -13,6 +13,7 @@
 (setq read-process-output-max (* 3 1024 1024))
 
 (require 'package)
+
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                           ("gnu"   . "https://elpa.gnu.org/packages/")))
 (package-initialize)
@@ -28,22 +29,101 @@
 (column-number-mode 1)
 (show-paren-mode 1)
 
-(use-package atom-one-dark-theme
+(use-package solarized-theme
   :ensure t
   :config
-  (load-theme 'atom-one-dark t))
+  (load-theme 'solarized-dark t))
 
 ;;; my old beloved themme ;-;
 ;;; (load-theme 'sexy t)
 
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
+;;; Completions: 
+(use-package corfu
+  :ensure t
+  :init
+  (global-corfu-mode)
+  :custom
+  (corfu-auto t)          
+  (corfu-auto-delay 0.2)
+  (corfu-auto-prefix 1)
+  (corfu-min-width 75)
+  (corfu-max-width 100)
+  (corfu-count 20)) 
+
+(use-package go-mode
+  :ensure t
+  :mode "\\.go\\'")
+
+(use-package csharp-mode
+  :ensure t
+  :mode "\\.cs\\'")
+
+(use-package rust-mode
+  :ensure t
+  :mode "\\.rs\\'")
+
+(use-package typescript-mode
+  :ensure t
+  :mode ("\\.ts\\'"  "\\.tsx\\'"))
+
+(use-package lsp-mode
+  :hook ((c++-mode . lsp-deferred)
+         (c-mode . lsp-deferred)
+         (go-mode . lsp-deferred)
+         (csharp-mode . lsp-deferred)
+         (rust-mode . lsp-deferred)      
+         (typescript-mode . lsp-deferred)
+         (tsx-mode . lsp-deferred))  
+  :commands lsp
+  :config
+  (setq lsp-clients-clangd-args '("-j=4" "-background-index" "--log=error" "--clang-tidy" "--enable-config"))
+  (setq lsp-clangd-binary-path "/usr/bin/clangd"))
+
+(setq lsp-log-io t)
+
+;;; TODO: fix lsp csharp roslyn completions or change for csharp-ls
+;;; Stolen from: https://github.com/blahgeek/emacs-lsp-booster/blob/master/README.md#configure-lsp-mode
+(defun lsp-booster--advice-json-parse (old-fn &rest args)
+  "Try to parse bytecode instead of json."
+  (or
+   (when (equal (following-char) ?#)
+     (let ((bytecode (read (current-buffer))))
+       (when (byte-code-function-p bytecode)
+         (funcall bytecode))))
+   (apply old-fn args)))
+ (advice-add (if (progn (require 'json)
+                       (fboundp 'json-parse-buffer))
+                'json-parse-buffer
+              'json-read)
+            :around
+            #'lsp-booster--advice-json-parse)
+
+(defun lsp-booster--advice-final-command (old-fn cmd &optional test?)
+  "Prepend emacs-lsp-booster command to lsp CMD."
+  (let ((orig-result (funcall old-fn cmd test?)))
+    (if (and (not test?)                             ;; for check lsp-server-present?
+             (not (file-remote-p default-directory)) ;; see lsp-resolve-final-command, it would add extra shell wrapper
+             lsp-use-plists
+             (not (functionp 'json-rpc-connection))  ;; native json-rpc
+             (executable-find "emacs-lsp-booster"))
+        (progn
+          (when-let ((command-from-exec-path (executable-find (car orig-result))))  ;; resolve command from exec-path (in case not found in $PATH)
+            (setcar orig-result command-from-exec-path))
+          (message "Using emacs-lsp-booster for %s!" orig-result)
+          (cons "emacs-lsp-booster" orig-result))
+      orig-result)))
+ (advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command)
 
 (use-package org)
 
 (use-package ox-hugo
   :ensure t
   :after ox)
+
+(use-package magit
+  :ensure t)
 
 (use-package hl-todo
   :ensure t
@@ -81,7 +161,7 @@
   :bind (("C-s" . swiper-isearch)))
 
 ;;; Thanks tsoding 
-;;; See more: https://github.com/rexim/dotfiles/blob/master/.emacs.rc/misc-rc.el
+;;; Stolen from: https://github.com/rexim/dotfiles/blob/master/.emacs.rc/misc-rc.el
 (defun xeno/duplicate-line ()
   "Duplicate current line"
   (interactive)
@@ -149,7 +229,7 @@
   (message (buffer-name)))
 
 ;; Org mode config
-(setq org-directory "~/bgc/agenda/org/")
+(setq org-directory "~/xeno/agenda/org/")
 
 ;; Org Agenda usage:
 ;; M-x org-agenda (or bind a key, e.g. C-c a)
@@ -224,7 +304,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages nil))
+ '(package-selected-packages
+   '(atom-one-dark-theme counsel gruvbox-theme hl-todo lsp-mode ox-hugo)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
