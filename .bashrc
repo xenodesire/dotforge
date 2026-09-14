@@ -20,6 +20,7 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 . "$HOME/.cargo/env"
+# . "$HOME/.dotnet/tools"
 
 dotnew() {
   dotnet new console -o "$1"

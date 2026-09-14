@@ -77,13 +77,14 @@
          (typescript-mode . lsp-deferred)
          (tsx-mode . lsp-deferred))  
   :commands lsp
-  :config
+  :config 
+  (add-to-list 'exec-path (expand-file-name "~/.dotnet/tools"))
   (setq lsp-clients-clangd-args '("-j=4" "-background-index" "--log=error" "--clang-tidy" "--enable-config"))
   (setq lsp-clangd-binary-path "/usr/bin/clangd"))
 
-(setq lsp-log-io t)
+;;; For debug: 
+;;; (setq lsp-log-io t)
 
-;;; TODO: fix lsp csharp roslyn completions or change for csharp-ls
 ;;; Stolen from: https://github.com/blahgeek/emacs-lsp-booster/blob/master/README.md#configure-lsp-mode
 (defun lsp-booster--advice-json-parse (old-fn &rest args)
   "Try to parse bytecode instead of json."
