@@ -5,6 +5,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 alias dotgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+export PATH=~/.npm-global/bin:$PATH
 
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
   PATH="$HOME/.local/bin:$HOME/bin:$PATH"

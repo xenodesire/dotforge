@@ -68,17 +68,25 @@
   :ensure t
   :mode ("\\.ts\\'"  "\\.tsx\\'"))
 
+(use-package zig-mode
+  :ensure t
+  :mode ("\\.zig\\'" "\\.zon'"))
+
 (use-package lsp-mode
-  :hook ((c++-mode . lsp-deferred)
-         (c-mode . lsp-deferred)
-         (go-mode . lsp-deferred)
+  :hook ((c++-mode . lsp)
+         (c-mode . lsp)
+         (go-mode . lsp)
          (csharp-mode . lsp-deferred)
          (rust-mode . lsp-deferred)      
-         (typescript-mode . lsp-deferred)
-         (tsx-mode . lsp-deferred))  
+         (typescript-mode . lsp)
+         (tsx-mode . lsp)
+	 (zig-mode . lsp))  
   :commands lsp
-  :config 
+  :config
+  (add-hook 'mhtml-mode-hook #'lsp)
+  (add-hook 'css-mode-hook #'lsp)
   (add-to-list 'exec-path (expand-file-name "~/.dotnet/tools"))
+  (setq lsp-zig-zls-executable "~/.zls/zls")
   (setq lsp-clients-clangd-args '("-j=4" "-background-index" "--log=error" "--clang-tidy" "--enable-config"))
   (setq lsp-clangd-binary-path "/usr/bin/clangd"))
 
