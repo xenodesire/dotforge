@@ -1,0 +1,98 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "logo": {
+    "source": "$HOME/.config/fastfetch/penger.txt",
+    "type": "file",
+    "padding": {
+      "top": 1
+    }
+  },
+  "display": {
+    "separator": "\t",
+    "percent": {
+      "type": 0
+    }
+  },
+  "key": {
+    "width": 10,
+    "type": "string"
+  },
+  "modules": [
+    {
+      "type": "title",
+      "keyWidth": 10,
+      "color": "#C4A7E7"
+    },
+    "break",
+    {
+      "type": "os",
+      "key": "󰣇 ",
+      "keyColor": "#c4a7e7",
+  "color": "#e0def4",
+  "format": "Arch (Btw)"
+    },
+    {
+      "type": "host",
+      "key": "󰌢 ",
+      "keyColor": "#c4a7e7",
+      "color": "#e0def4",
+      "format": "Xenodesire"
+    },
+    {
+      "type": "kernel",
+      "key": "󰒓 ",
+      "keyColor": "#c4a7e7",
+      "color": "#e0def4"
+    },
+    {
+      "type": "uptime",
+      "key": "󰅐 ",
+      "keyColor": "#c4a7e7",
+      "color": "#e0def4"
+    },
+    {
+      "type": "packages",
+      "key": "󰏓 ",
+      "keyColor": "#c4a7e7",
+      "color": "#e0def4"
+    },
+    {
+      "type": "shell",
+      "key": "󰞷 ",
+      "keyColor": "#c4a7e7",
+      "color": "#e0def4"
+    },
+    {
+      "type": "de",
+      "key": "󰧨 ",
+      "keyColor": "#c4a7e7",
+      "color": "#e0def4"
+    },
+    {
+      "type": "wm",
+      "key": "󰍹 ",
+      "keyColor": "#c4a7e7",
+      "color": "#e0def4"
+    },
+    {
+      "type": "theme",
+      "key": "󰉦 ",
+      "keyColor": "#c4a7e7",
+      "color": "#e0def4"
+    },
+    {
+      "type": "terminal",
+      "key": "󰆍 ",
+      "keyColor": "#c4a7e7",
+      "color": "#e0def4"
+    },
+    {
+      "type": "locale",
+      "key": "󰗊 ",
+      "keyColor": "#c4a7e7",
+      "color": "#e0def4"
+    },
+    "break",
+    "colors"
+  ]
+}
