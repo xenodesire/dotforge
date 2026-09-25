@@ -39,10 +39,10 @@ dynamic_background_opacity yes
 # scrollback_pager ~/.local/share/bob/nvim-bin/nvim -c "lua require('util').colorize()"
 
 # Theme
-# include ~/.config/kitty/themes/rose-pine-moon.conf
+include ~/.config/kitty/themes/rose-pine-moon.conf
 
 
 # BEGIN_KITTY_THEME
-# Tokyo Night Moon
-include tokyo-night-moon.conf
+# One Dark
+include current-theme.conf
 # END_KITTY_THEME

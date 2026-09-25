@@ -29,10 +29,10 @@
 (column-number-mode 1)
 (show-paren-mode 1)
 
-(use-package solarized-theme
+(use-package tokyo-night
   :ensure t
   :config
-  (load-theme 'solarized-dark t))
+  (load-theme 'tokyo-night-moon t))
 
 ;;; my old beloved themme ;-;
 ;;; (load-theme 'sexy t)
