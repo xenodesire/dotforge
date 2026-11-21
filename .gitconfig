@@ -7,3 +7,5 @@
 [user]
 	name = Bruno G. Ciccarino
 	email = bgrecaciccarino@gmail.com
+[core]
+	editor = vim
